@@ -13,15 +13,12 @@ with sync_playwright() as a:
 
   page.is_visible('div.css-jvh80z eu4oa1w0')
   content = page.content() 
-  #with open('content.html','w',encoding='utf-8') as file:
-   #file.write(content)
  
   with open('content.html' ,'w',encoding='utf-8')as f:
    f.write(content)
    doc=BeautifulSoup(content,'lxml')
    outer = doc.find('div',{'class':'mosaic mosaic-provider-jobcards'})
-#doc = BeautifulSoup(content,'lxml')
-#outer = doc.find('div',{'class':'mosaic mosaic-provider-jobcards'})
+
 
 indeed_posts=[]
 for i in outer.find('ul'):
